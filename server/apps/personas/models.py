@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Max
 
 
 class Persona(models.Model):
@@ -49,5 +50,10 @@ class Persona(models.Model):
         blank=False
     )
 
+    class Meta:
+        verbose_name = 'Persona'
+        verbose_name_plural = 'Personas'
+        ordering = ['apellidos', 'nombres']
+
     def __str__(self):
-        return '{} - {} - {} - {} - {} - {}'.format(self.documento, self.nombres, self.apellidos, self.celular, self.fecha_nacimiento, self.genero)
+        return '{} | {} {} | {}'.format(self.documento, self.nombres, self.apellidos, self.celular)

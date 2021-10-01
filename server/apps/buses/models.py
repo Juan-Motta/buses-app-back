@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Max
 
 
 class Bus(models.Model):
@@ -40,5 +41,18 @@ class Bus(models.Model):
         default=False
     )
 
+    def save(self, **kwargs):
+        if not self.codigo:
+            max = Bus.objects.aggregate(id_max=Max('id'))['id_max']
+            self.codigo = "{}{:03d}".format(
+                'B',
+                max if max is not None else 1)
+        super().save(*kwargs)
+
+    class Meta:
+        verbose_name = 'Bus'
+        verbose_name_plural = 'Buses'
+        ordering = ['codigo']
+
     def __str__(self):
-        return '{} - {} - {}'.format(self.codigo, self.modelo, str(self.numeroPasajeros))
+        return '{}'.format(self.modelo)

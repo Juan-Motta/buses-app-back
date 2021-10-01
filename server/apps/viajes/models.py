@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Max
 
 from apps.trayectos.models import Trayecto
 from apps.buses.models import Bus
@@ -56,5 +57,18 @@ class Viaje(models.Model):
         on_delete=models.CASCADE
     )
 
+    def save(self, **kwargs):
+        if not self.codigo:
+            max = Viaje.objects.aggregate(id_max=Max('id'))['id_max']
+            self.codigo = "{}{:03d}".format(
+                'V',
+                max if max is not None else 1)
+        super().save(*kwargs)
+
+    class Meta:
+        verbose_name = 'Viaje'
+        verbose_name_plural = 'Viaje'
+        ordering = ['estado', 'fecha', 'hora']
+
     def __str__(self):
-        return '{} - {} - {} - {}'.format(self.codigo, str(self.fecha), str(self.hora), str(self.trayecto))
+        return '{} | {} | {}'.format(str(self.trayecto), str(self.fecha), str(self.hora))

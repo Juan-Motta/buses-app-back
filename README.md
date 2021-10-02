@@ -4,13 +4,7 @@
 
 
 Overide es una applicacion creada con el fin de poder gestionar la compra de pasajes de buses intermunicipales.
-Esta aplicacion esta creada como proyecto para el ciclo 3 de MisionTic20222 y en su creacion participan los siguientes integrantes:
-
-* Andrea Lorena Castro Manzano
-* Brian Alexander Beltran Poveda
-* Cristian Humberto Ladino Vivas
-* Juan Andres Lopez Motta
-* Luis Fabian Calderon Fontalvo 
+Esta aplicacion esta creada como proyecto para el ciclo 3 de MisionTic20222
 
 ## Tecnologias utilizadas
 
@@ -28,43 +22,25 @@ Una vez clonado el repositorio y creado el entorno virtual, se debe ingresar a l
 pip install -r local.txt
 ```
 
-Antes de ejecutar el servidor de desarrollo se debe iniciar el servidor de base de datos de postgreSQL.
-Primero se debe ingresar al servidor de posgres con el comando:
-```console
-psql -h localhost -U postgres
-```
-Una vez ingresado se debe crear una base de datos con el comando
-```console
-CREATE DATABASE busesapp;
-```
-Luego crear un usuario con el comando:
-```console
-CREATE USER admin;
-```
-Luego ingresar a la base de datos creada con el comando:
-```console
-\c busesapp;
-```
-y por ultimo asignarle rol de administrador al usuario anteriormente creado con el comando:
-```console
-ALTER ROLE admin WITH PASSWORD 'admin';
-```
-Una vez realizados estos pasos la base de datos quedara creada correctamente, si los datos de configuracion han cambiado se debe modificar el archivo local.py del proyecto en server/settings/local.py
+El proyecto de desarrollo esta corriendo con SQLite3 como base de datos por lo tanto no es necesario realizar configuraciones adicionales.
 
 Una vez se han realizado las configuraciones se debe ejecutar el comando en la misma carpeta que contiene el manage.py con el fin de realizar las migraciones a la base de datos
+
 ```console
 python manage.py makemigrations
 ```
+
 Una vez se han configurado las migraciones se deben implementar con el comando
+
 ```console
 python manage.py migrate
 ```
+
 Finalmente se puede ejecutar el servidor de desarrollo con el comando
+
 ```console
 python manage.py runserver
 ```
-
-
 
 ## Notas
 
@@ -80,4 +56,13 @@ python manage.py runserver
 * Cambios en las apps del proyecto
 * Agregadas configuraciones de visualizacion en el administrador
 * Agregadas caracteristica de autoasignacion de valor de los campos codigo de acuerdo a la tabla y a sus valores principales
+
+0.2.0
+
+* Cambios a las apps del proyecto
+* Agregadas nuevas configuraciones de visualizacion en el administrador
+* Eliminadas apps exepto Usuarios el cual pasa a llamarse Users
+* Agregada opcion de creacion de usuarios y superusuarios en el administrador
+* Agregada opcion para subir imagen y asociarla a un usuario
+* Agregados servicios REST para la aplicacion Users (ver users/api)
 

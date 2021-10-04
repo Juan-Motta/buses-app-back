@@ -66,3 +66,8 @@ python manage.py runserver
 * Agregada opcion para subir imagen y asociarla a un usuario
 * Agregados servicios REST para la aplicacion Users (ver users/api)
 
+0.2.1
+
+* Cambios a la app usuarios
+* Hasheo de contraseñas de usuarios corregido en la creacion y modificacion de usuarios desde el administrador y desde las peticiones PUT y POST
+* Modificadas las PK de las bases de datos

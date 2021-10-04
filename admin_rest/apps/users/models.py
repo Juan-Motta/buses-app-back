@@ -38,14 +38,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(
         'Nombres',
         max_length=255,
-        blank=True,
-        null=True
+        blank=False,
+        null=False
     )
     last_name = models.CharField(
         'Apellidos',
         max_length=255,
-        blank=True,
-        null=True
+        blank=False,
+        null=False
     )
     image = models.ImageField(
         'Imagen de perfil',
@@ -58,23 +58,24 @@ class User(AbstractBaseUser, PermissionsMixin):
         'Documento',
         max_length=50,
         unique=True,
-        blank=True,
-        null=True
+        blank=False,
+        null=False,
+        primary_key=True
     )
     birth = models.DateField(
         'Fecha de nacimiento (YYYY-MM-DD)',
         auto_now=False,
         auto_now_add=False,
         name=False,
-        blank=True,
-        null=True
+        blank=False,
+        null=False
     )
     phone = models.CharField(
         'Celular',
         max_length=50,
         unique=True,
-        blank=True,
-        null=True
+        blank=False,
+        null=False
     )
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

@@ -1,6 +1,15 @@
 from django.urls import path
-from apps.users.api.api import UserAPIView
+from .api import user_api_view, user_detail_api_view
 
 urlpatterns = [
-    path('get-users/', UserAPIView.as_view(), name='user_api')
+    path(
+        'users/',
+        user_api_view,
+        name='user_api_view'
+    ),
+    path(
+        'users/<str:document>',
+        user_detail_api_view,
+        name='user_detail_api_view'
+    ),
 ]

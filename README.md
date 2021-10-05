@@ -42,6 +42,14 @@ Finalmente se puede ejecutar el servidor de desarrollo con el comando
 python manage.py runserver
 ```
 
+## API Routes
+
+obtener ciudades - /api/rutas/get-ciudades
+obtener ciudad por id - /api/rutas/get-ciudad/<pk>
+
+obtener trayecto - /api/rutas/get-trayectos
+obtener trayecto por id - /api/rutas/get-trayecto/<pk>
+
 ## Notas
 
 0.1.0  

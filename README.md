@@ -45,9 +45,11 @@ python manage.py runserver
 ## API Routes
 
 obtener ciudades - /api/rutas/get-ciudades
+
 obtener ciudad por id - /api/rutas/get-ciudad/<pk>
 
 obtener trayecto - /api/rutas/get-trayectos
+
 obtener trayecto por id - /api/rutas/get-trayecto/<pk>
 
 ## Notas

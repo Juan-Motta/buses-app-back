@@ -71,3 +71,8 @@ python manage.py runserver
 * Cambios a la app usuarios
 * Hasheo de contraseñas de usuarios corregido en la creacion y modificacion de usuarios desde el administrador y desde las peticiones PUT y POST
 * Modificadas las PK de las bases de datos
+
+0.3.0
+
+* Agregada la app trayectos
+* Definidos los metodos GET

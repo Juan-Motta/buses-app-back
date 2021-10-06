@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from apps.rutas.models import Ciudad, Trayecto
-from apps.rutas.api.serializers import CiudadSerializer, TrayectoSerializer
+from apps.rutas.api.serializers import CiudadSerializer, TrayectoSerializer, TrayectoListSerializer
 
 
 @api_view(['GET'])
@@ -41,3 +41,23 @@ def get_trayecto_api_view(request):
         trayectos = Trayecto.objects.all()
         trayectos_serializer = TrayectoSerializer(trayectos, many=True)
         return Response(trayectos_serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def post_ciudad_api_view(request):
+    if request.method == 'POST':
+        ciudad_serializer = CiudadSerializer(data=request.data)
+        if ciudad_serializer.is_valid():
+            ciudad_serializer.save()
+            return Response(ciudad_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(ciudad_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def post_trayecto_api_view(request):
+    if request.method == 'POST':
+        trayecto_serializer = TrayectoListSerializer(data=request.data)
+        if trayecto_serializer.is_valid():
+            trayecto_serializer.save()
+            return Response(trayecto_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(trayecto_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -17,3 +17,9 @@ class TrayectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trayecto
         fields = '__all__'
+
+
+class TrayectoListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Trayecto
+        exclude = ['id']

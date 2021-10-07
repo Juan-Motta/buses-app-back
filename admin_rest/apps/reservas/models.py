@@ -64,8 +64,6 @@ class Reserva(models.Model):
             trayecto=self.trayecto
         )
 
-        print(self.trayecto.puestos)
-
         if self.puesto > self.trayecto.puestos and self.puesto < 0:
             raise ValidationError(
                 {'puesto': "El puesto seleccionado es invalido"})
@@ -83,4 +81,4 @@ class Reserva(models.Model):
 
     def __str__(self):
         """Representacion Unicode de la Reserva"""
-        return f'{self.usuario} - {self.trayecto} - {self.nombre} - {self.apellido} - {self.puesto}'
+        return f'{self.id} - {self.usuario} - {self.trayecto} - {self.nombre} - {self.apellido} - {self.puesto}'

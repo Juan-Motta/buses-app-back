@@ -93,4 +93,4 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         """Representacion Unicode del Usuario"""
-        return f'{self.name} {self.last_name} - {self.document} - {self.email}'
+        return f'{self.id} - {self.name} {self.last_name} - {self.document} - {self.email}'

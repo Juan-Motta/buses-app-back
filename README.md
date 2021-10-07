@@ -159,3 +159,11 @@ Formato JSON para crear y actualizar Trayectos:
 0.4.4 
 
 * Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Trayectos
+
+0.4.5
+
+* Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Reservas
+
+0.4.6
+
+* Agregada validaciones a los servicios rest (POST, PUT) para el modelo reservas, ahora no esposible realizar o actualizar una reserva con un puesto ya ocupado y no es posible seleccionar un numero de asiento que no este disponible en el bus.

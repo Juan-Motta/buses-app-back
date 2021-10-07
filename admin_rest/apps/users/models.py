@@ -1,14 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
-from simple_history.models import HistoricalRecords
 
 
 class UserManager(BaseUserManager):
+    """Representacion del manager que contiene los metodos para realizar las consultas a la base de datos"""
+
     def _create_user(self, email, name, last_name, password, document, birth, phone, is_staff, is_superuser, **extra_fields):
+        """Metodo que crea el registro de usuario en la base de datos"""
         user = self.model(
-            email=email,
             name=name,
             last_name=last_name,
+            email=email,
             document=document,
             birth=birth,
             phone=phone,
@@ -21,68 +23,68 @@ class UserManager(BaseUserManager):
         return user
 
     def create_user(self, email, name, last_name, document, birth, phone, password=None, **extra_fields):
+        """Metodo que crea un usuario"""
         return self._create_user(email, name, last_name, password, document, birth, phone, False, False, **extra_fields)
 
     def create_superuser(self, email, name, last_name, document, birth, phone, password=None, **extra_fields):
+        """Metodo que crea un superusuario"""
         return self._create_user(email, name, last_name, password, document, birth, phone, True, True, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(
-        'Correo Electrónico',
-        max_length=255,
-        unique=True,
-        blank=False,
-        null=False
-    )
+    """Representacion del modelo para Usuarios"""
+
     name = models.CharField(
         'Nombres',
-        max_length=255,
-        blank=False,
-        null=False
+        max_length=254,
     )
+
     last_name = models.CharField(
         'Apellidos',
-        max_length=255,
-        blank=False,
-        null=False
+        max_length=254,
     )
-    image = models.ImageField(
-        'Imagen de perfil',
-        upload_to='perfil/',
-        max_length=255,
-        null=True,
-        blank=True
+
+    email = models.EmailField(
+        'Correo Electrónico',
+        max_length=254,
+        unique=True,
     )
+
     document = models.CharField(
         'Documento',
         max_length=50,
         unique=True,
-        blank=False,
-        null=False,
-        primary_key=True
     )
+
     birth = models.DateField(
         'Fecha de nacimiento (YYYY-MM-DD)',
         auto_now=False,
         auto_now_add=False,
-        name=False,
-        blank=False,
-        null=False
     )
+
     phone = models.CharField(
         'Celular',
         max_length=50,
         unique=True,
-        blank=False,
-        null=False
     )
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    historical = HistoricalRecords()
+
+    is_active = models.BooleanField(
+        default=True
+    )
+
+    is_staff = models.BooleanField(
+        default=False
+    )
+
     objects = UserManager()
 
+    def save(self, **kwargs):
+        self.name = self.name.upper()
+        self.last_name = self.last_name.upper()
+        super().save(*kwargs)
+
     class Meta:
+        """Definicion de los Metadatos para el modelo de Usuarios"""
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
@@ -90,4 +92,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['name', 'last_name', 'document', 'birth', 'phone']
 
     def __str__(self):
-        return f'{self.name} {self.last_name}'
+        """Representacion Unicode del Usuario"""
+        return f'{self.name} {self.last_name} - {self.document} - {self.email}'

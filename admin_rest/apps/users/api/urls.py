@@ -4,13 +4,13 @@ from .api import user_api_view, user_detail_api_view
 
 urlpatterns = [
     path(
-        'users/',
+        '',
         user_api_view,
-        name='user_api_view'
+        name='user'
     ),
     path(
-        'users/<str:document>',
+        '<str:document>',
         user_detail_api_view,
-        name='user_detail_api_view'
+        name='detailed_user'
     ),
 ]

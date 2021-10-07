@@ -42,15 +42,37 @@ Finalmente se puede ejecutar el servidor de desarrollo con el comando
 python manage.py runserver
 ```
 
-## API Routes
+## Servicios REST
 
-obtener ciudades - /api/rutas/get-ciudades
+### Rutas API - Usuarios
 
-obtener ciudad por id - /api/rutas/get-ciudad/<pk>
+Listar Usuarios
+http://localhost:8000/usuario/
 
-obtener trayecto - /api/rutas/get-trayectos
+Listar Usuario
+http://localhost:8000/usuario/<documento>
 
-obtener trayecto por id - /api/rutas/get-trayecto/<pk>
+Crear usuario
+http://localhost:8000/usuario/<documento>
+
+Actualizar usuario
+http://localhost:8000/usuario/<documento>
+
+Eliminar usuario
+http://localhost:8000/usuario/<documento>
+
+Formato JSON para crear y actualizar usuarios:
+```JSON
+{
+	"name": "nombres",
+	"last_name": "apellidos",
+	"email": "email",
+	"password": "password",
+	"document": "password",
+	"birth": "aaaa-mm-dd",
+	"phone": "telefono"
+}
+```
 
 ## Notas
 
@@ -86,3 +108,21 @@ obtener trayecto por id - /api/rutas/get-trayecto/<pk>
 
 * Agregada la app trayectos
 * Definidos los metodos GET
+
+0.4.0
+
+* Cambios en el diseño del proyecto
+* Eliminadas todas las app excepto users
+
+0.4.1
+
+* Creadas dos nuevas apps trayectos y reservas
+* Creados los modelos y el administrador de reservas y trayectos
+
+0.4.2
+
+* Agregada validacion de seleccion de numero de puesto desde el administrador
+
+0.4.3
+
+* Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Usuarios

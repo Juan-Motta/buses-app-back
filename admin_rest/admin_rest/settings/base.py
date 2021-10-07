@@ -3,14 +3,15 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pq-vs_$z)^5anb#jb^6q4ah!a$orpe5qfn&mh^z@s139wy%ip5'
+SECRET_KEY = 'django-insecure-^=fxq0-t&0my-$doz5#w$w@&0-^$b3=x&n1#^ud-205^)lf*@6'
+
 
 # Application definition
-
 BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,15 +23,15 @@ BASE_APPS = [
 
 LOCAL_APPS = [
     'apps.users',
-    'apps.rutas',
+    'apps.trayectos',
+    'apps.reservas'
 ]
 
-THIRD_APPS = [
-    'rest_framework',
-    'simple_history',
+THRID_APPS = [
+    'rest_framework'
 ]
 
-INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
+INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THRID_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -40,7 +41,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'admin_rest.urls'

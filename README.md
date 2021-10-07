@@ -44,22 +44,36 @@ python manage.py runserver
 
 ## Servicios REST
 
+Para obtener ina informacion mas detallada es posible acceder a la documentacion publica de la aplicacion una vez el servidor este iniciado por medio de la URL:
+
+* http://localhost:8000/swagger/
+
 ### Rutas API - Usuarios
 
-Listar Usuarios
+**Listar Usuarios**
+```
 http://localhost:8000/usuario/
+```
 
-Listar Usuario
-http://localhost:8000/usuario/< documento >
+**Listar Usuario**
+```
+http://localhost:8000/usuario/<str:documento>
+```
 
-Crear usuario
-http://localhost:8000/usuario/< documento >
+**Crear usuario**
+```
+http://localhost:8000/usuario/<str:documento>
+```
 
-Actualizar usuario
-http://localhost:8000/usuario/< documento >
+**Actualizar usuario**
+```
+http://localhost:8000/usuario/<str:documento>
+```
 
-Eliminar usuario
-http://localhost:8000/usuario/< documento >
+**Eliminar usuario**
+```
+http://localhost:8000/usuario/<str:documento>
+```
 
 Formato JSON para crear y actualizar usuarios:
 ```JSON
@@ -76,20 +90,30 @@ Formato JSON para crear y actualizar usuarios:
 
 ### Rutas API - Trayectos
 
-Listar Trayectos
+**Listar Trayectos**
+```
 http://localhost:8000/trayecto/
+```
 
-Listar Trayecto
-http://localhost:8000/trayecto/< id >
+**Listar Trayecto**
+```
+http://localhost:8000/trayecto/<int:id>
+```
 
-Crear Trayecto
-http://localhost:8000/usuario/< id >
+**Crear Trayecto**
+```
+http://localhost:8000/usuario/<int:id>
+```
 
-Actualizar Trayecto
-http://localhost:8000/usuario/< id >
+**Actualizar Trayecto**
+```
+http://localhost:8000/usuario/<int:id>
+```
 
-Eliminar Trayecto
-http://localhost:8000/usuario/< id >
+**Eliminar Trayecto**
+```
+http://localhost:8000/usuario/<int:id>
+```
 
 Formato JSON para crear y actualizar Trayectos:
 ```JSON
@@ -103,22 +127,64 @@ Formato JSON para crear y actualizar Trayectos:
 }
 ```
 
+### Rutas API - Reservas
+
+**Listar Reservas**
+```
+http://localhost:8000/reserva/
+```
+
+**Listar Reserva**
+```
+http://localhost:8000/reserva/<int:id>
+```
+
+**Crear Reserva**
+```
+http://localhost:8000/reserva/<int:id>
+```
+
+**Actualizar Reserva**
+```
+http://localhost:8000/reserva/<int:id>
+```
+
+**Eliminar Reserva**
+```
+http://localhost:8000/reserva/<int:id>
+```
+
+Formato JSON para crear y actualizar Trayectos:
+```JSON
+{
+	"id": 7,
+	"usuario": 1,
+	"trayecto": 1,
+	"nombre": "Jhon",
+	"apellido": "Doe",
+	"documento": "12345678",
+	"fecha_nacimiento": "2021-10-06",
+	"telefono": "12345678",
+	"puesto": 1
+}
+```
+
 ## Notas
 
-0.1.0  
+**0.1.0**  
 
 * Cambios al diseño base del proyecto
 * Agregada configuracion de postgres (controlador y conexion local en el archivo base.py)
 * Agregados modelos de las apps personas, viajes, pasajeros, buses, trayectos y ciudades.
 * Agregados modelos al administrador de Django
 
-0.1.1
+**0.1.1**
 
 * Cambios en las apps del proyecto
 * Agregadas configuraciones de visualizacion en el administrador
 * Agregadas caracteristica de autoasignacion de valor de los campos codigo de acuerdo a la tabla y a sus valores principales
 
-0.2.0
+**0.2.0**
 
 * Cambios a las apps del proyecto
 * Agregadas nuevas configuraciones de visualizacion en el administrador
@@ -127,43 +193,48 @@ Formato JSON para crear y actualizar Trayectos:
 * Agregada opcion para subir imagen y asociarla a un usuario
 * Agregados servicios REST para la aplicacion Users (ver users/api)
 
-0.2.1
+**0.2.1**
 
 * Cambios a la app usuarios
 * Hasheo de contraseñas de usuarios corregido en la creacion y modificacion de usuarios desde el administrador y desde las peticiones PUT y POST
 * Modificadas las PK de las bases de datos
 
-0.3.0
+**0.3.0**
 
 * Agregada la app trayectos
 * Definidos los metodos GET
 
-0.4.0
+**0.4.0**
 
 * Cambios en el diseño del proyecto
 * Eliminadas todas las app excepto users
 
-0.4.1
+**0.4.1**
 
 * Creadas dos nuevas apps trayectos y reservas
 * Creados los modelos y el administrador de reservas y trayectos
 
-0.4.2
+**0.4.2**
 
 * Agregada validacion de seleccion de numero de puesto desde el administrador
 
-0.4.3
+**0.4.3**
 
 * Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Usuarios
 
-0.4.4 
+**0.4.4** 
 
 * Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Trayectos
 
-0.4.5
+**0.4.5**
 
 * Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Reservas
 
-0.4.6
+**0.4.6**
 
 * Agregada validaciones a los servicios rest (POST, PUT) para el modelo reservas, ahora no esposible realizar o actualizar una reserva con un puesto ya ocupado y no es posible seleccionar un numero de asiento que no este disponible en el bus.
+
+**0.4.7**
+
+* Actualizada estructura del proyecto para produccion
+* Agregada ruta de documentacion publica

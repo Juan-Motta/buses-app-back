@@ -64,13 +64,42 @@ http://localhost:8000/usuario/< documento >
 Formato JSON para crear y actualizar usuarios:
 ```JSON
 {
-	"name": "nombres",
-	"last_name": "apellidos",
-	"email": "email",
-	"password": "password",
-	"document": "password",
-	"birth": "aaaa-mm-dd",
-	"phone": "telefono"
+	"name": "Jhon",
+	"last_name": "Doe",
+	"email": "jhon@example.com",
+	"password": "miclave123",
+	"document": "12345678",
+	"birth": "2021-10-06",
+	"phone": "12345678"
+}
+```
+
+### Rutas API - Trayectos
+
+Listar Trayectos
+http://localhost:8000/trayecto/
+
+Listar Trayecto
+http://localhost:8000/trayecto/< id >
+
+Crear Trayecto
+http://localhost:8000/usuario/< id >
+
+Actualizar Trayecto
+http://localhost:8000/usuario/< id >
+
+Eliminar Trayecto
+http://localhost:8000/usuario/< id >
+
+Formato JSON para crear y actualizar Trayectos:
+```JSON
+{
+	"origen": "Bogota",
+	"destino": "Medellin",
+	"fecha": "2021-10-07",
+	"hora": "18:00:00",
+	"precio": 70000,
+	"puestos": 30
 }
 ```
 
@@ -126,3 +155,7 @@ Formato JSON para crear y actualizar usuarios:
 0.4.3
 
 * Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Usuarios
+
+0.4.4 
+
+* Agregados servicios rest (GET, POST, PUT, DELETE) para el modelo Trayectos

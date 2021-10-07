@@ -50,16 +50,16 @@ Listar Usuarios
 http://localhost:8000/usuario/
 
 Listar Usuario
-http://localhost:8000/usuario/<documento>
+http://localhost:8000/usuario/< documento >
 
 Crear usuario
-http://localhost:8000/usuario/<documento>
+http://localhost:8000/usuario/< documento >
 
 Actualizar usuario
-http://localhost:8000/usuario/<documento>
+http://localhost:8000/usuario/< documento >
 
 Eliminar usuario
-http://localhost:8000/usuario/<documento>
+http://localhost:8000/usuario/< documento >
 
 Formato JSON para crear y actualizar usuarios:
 ```JSON

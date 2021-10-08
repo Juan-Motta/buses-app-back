@@ -45,6 +45,6 @@ def reserva_detail_api_view(request, id=None):
         # delete
         elif request.method == 'DELETE':
             reserva.delete()
-            return Response({'message': 'Usuario Eliminado correctamente!'}, status=status.HTTP_200_OK)
+            return Response({'message': 'Reserva Eliminado correctamente!'}, status=status.HTTP_200_OK)
 
     return Response({'message': 'No se ha encontrado un usuario con estos datos'}, status=status.HTTP_400_BAD_REQUEST)

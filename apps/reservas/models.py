@@ -9,26 +9,24 @@ class Reserva(models.Model):
 
     usuario = models.ForeignKey(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        verbose_name='Usuario'
     )
 
     trayecto = models.ForeignKey(
         Trayecto,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        verbose_name='Trayecto'
     )
 
     nombre = models.CharField(
         'Nombre',
-        max_length=50,
-        null=False,
-        blank=False
+        max_length=255
     )
 
     apellido = models.CharField(
         'Apellido',
-        max_length=50,
-        null=False,
-        blank=False
+        max_length=255
     )
 
     documento = models.CharField(

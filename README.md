@@ -238,3 +238,7 @@ Formato JSON para crear y actualizar Trayectos:
 
 * Actualizada estructura del proyecto para produccion
 * Agregada ruta de documentacion publica
+
+**0.4.8**
+
+* Corregido bug critico que no permitia acceder al administrador

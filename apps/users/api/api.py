@@ -39,7 +39,7 @@ def user_detail_api_view(request, document=None):
             user_serializer = UserSerializer(user, data=request.data)
             if user_serializer.is_valid():
                 user_serializer.save()
-                return Response(user_serializer.data, status=status.HTTP_200_OK)
+                return Response({'message': 'Usuario actualizado correctamente'}, status=status.HTTP_200_OK)
             return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         # delete

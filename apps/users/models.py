@@ -3,14 +3,18 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 
 
 class UserManager(BaseUserManager):
-    """Representacion del manager que contiene los metodos para realizar las consultas a la base de datos"""
-
-    def _create_user(self, email, name, last_name, password, document, birth, phone, is_staff, is_superuser, **extra_fields):
-        """Metodo que crea el registro de usuario en la base de datos"""
+    """
+    Custom user model manager.
+    """
+    def _create_user(self, username, email, name, last_name, document, birth, phone, password, is_staff, is_superuser, **extra_fields):
+        """
+        Create and save a User with the given data.
+        """
         user = self.model(
+            username=username,
+            email=email,
             name=name,
             last_name=last_name,
-            email=email,
             document=document,
             birth=birth,
             phone=phone,
@@ -22,75 +26,71 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-    def create_user(self, email, name, last_name, document, birth, phone, password=None, **extra_fields):
-        """Metodo que crea un usuario"""
-        return self._create_user(email, name, last_name, password, document, birth, phone, False, False, **extra_fields)
+    def create_user(self, username, email, name, last_name, document, birth, phone, password=None, **extra_fields):
+        """
+        Call _create_user function setting the respective parameters for a user.
+        """
+        return self._create_user(username, email, name, last_name, document, birth, phone, password, False, False, **extra_fields)
 
-    def create_superuser(self, email, name, last_name, document, birth, phone, password=None, **extra_fields):
-        """Metodo que crea un superusuario"""
-        return self._create_user(email, name, last_name, password, document, birth, phone, True, True, **extra_fields)
+    def create_superuser(self, username, email, name, last_name, document, birth, phone, password=None, **extra_fields):
+        """
+        Call _create_user function setting the respective parameters for a superuser.
+        """
+        return self._create_user(username, email, name, last_name, document, birth, phone, password, True, True, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    """Representacion del modelo para Usuarios"""
-
-    name = models.CharField(
-        'Nombres',
-        max_length=254,
+    username = models.CharField(
+        'Nombre de usuario',
+        max_length=255,
+        unique=True,
     )
-
-    last_name = models.CharField(
-        'Apellidos',
-        max_length=254,
-    )
-
     email = models.EmailField(
         'Correo Electrónico',
-        max_length=254,
+        max_length=255,
         unique=True,
     )
-
+    name = models.CharField(
+        'Nombres',
+        max_length=255,
+    )
+    last_name = models.CharField(
+        'Apellidos',
+        max_length=255,
+    )
     document = models.CharField(
         'Documento',
-        max_length=50,
+        max_length=20,
         unique=True,
     )
-
     birth = models.DateField(
-        'Fecha de nacimiento (YYYY-MM-DD)',
+        'Fecha de nacimiento',
         auto_now=False,
         auto_now_add=False,
     )
-
     phone = models.CharField(
         'Celular',
-        max_length=50,
-        unique=True,
+        max_length=15,
+        unique=True
     )
 
-    is_active = models.BooleanField(
-        default=True
-    )
-
-    is_staff = models.BooleanField(
-        default=False
-    )
-
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
     objects = UserManager()
 
-    def save(self, **kwargs):
-        self.name = self.name.upper()
-        self.last_name = self.last_name.upper()
-        super().save(*kwargs)
-
     class Meta:
-        """Definicion de los Metadatos para el modelo de Usuarios"""
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name', 'last_name', 'document', 'birth', 'phone']
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = [
+        'email',
+        'name',
+        'last_name',
+        'document',
+        'birth',
+        'phone'
+    ]
 
     def __str__(self):
-        """Representacion Unicode del Usuario"""
-        return f'{self.id} - {self.name} {self.last_name} - {self.document} - {self.email}'
+        return f'{self.name} {self.last_name}'

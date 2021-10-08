@@ -6,6 +6,7 @@ class TrayectoAdmin(admin.ModelAdmin):
     list_filter = ('origen', 'destino')
     fields = ('origen', 'destino', 'fecha', 'hora', 'precio', 'puestos')
     list_display = (
+        'id',
         'origen',
         'destino',
         'fecha',

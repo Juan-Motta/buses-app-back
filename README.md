@@ -242,3 +242,8 @@ Formato JSON para crear y actualizar Trayectos:
 **0.4.8**
 
 * Corregido bug critico que no permitia acceder al administrador
+
+**0.5.0**
+
+* Agregado sistema de autenticacion por token
+* Definidas nuevas rutas para obtener y refrescar los tokens

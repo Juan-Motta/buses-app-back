@@ -1,6 +1,4 @@
 from .base import *
-import dj_database_url
-from decouple import config
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -19,6 +17,11 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-        'default': dj_database_url.config(default=config('DATABASE_URL'))
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2iom80lpupuor',
+        'USER': 'zfxwbvqwaiytzn',
+        'PASSWORD': '435e1656174d73d82c6f48cfe0acb7486dd34d875bbaf4b1a6e010b08a2e4065',
+        'HOST': 'ec2-54-204-148-110.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }

@@ -16,10 +16,10 @@ La applicacion fue contruida usando las siguientes tecnologias:
 
 ## Instalacion y configuracion
 
-Una vez clonado el repositorio y creado el entorno virtual, se debe ingresar a la carpeta requirements y con el entorno virtual activado se debe ejecutar el comando
+Una vez clonado el repositorio y creado el entorno virtual, se debe ingresar a la carpeta raiz y con el entorno virtual activado se debe ejecutar el comando
 
 ```console
-pip install -r local.txt
+pip install -r requirements.txt
 ```
 
 El proyecto de desarrollo esta corriendo con SQLite3 como base de datos por lo tanto no es necesario realizar configuraciones adicionales.
@@ -36,6 +36,8 @@ Una vez se han configurado las migraciones se deben implementar con el comando
 python manage.py migrate
 ```
 
+**Si se desea limpiar la base de datos se deben eliminar los archivos dentro de las carpetas migrations excepto el __init__.py y eliminar el archivo db.sqlite3 dentro de la carpeta admin_rest**
+
 Finalmente se puede ejecutar el servidor de desarrollo con el comando
 
 ```console
@@ -44,7 +46,7 @@ python manage.py runserver
 
 ## Servicios REST
 
-Para obtener ina informacion mas detallada es posible acceder a la documentacion publica de la aplicacion una vez el servidor este iniciado por medio de la URL:
+Para obtener una informacion mas detallada es posible acceder a la documentacion publica de la aplicacion una vez el servidor este iniciado por medio de la URL:
 
 * http://localhost:8000/swagger/
 

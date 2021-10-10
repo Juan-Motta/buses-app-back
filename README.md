@@ -52,27 +52,27 @@ Para obtener ina informacion mas detallada es posible acceder a la documentacion
 
 **Listar Usuarios**
 ```
-http://localhost:8000/usuario/
+http://localhost:8000/api/usuario/
 ```
 
 **Listar Usuario**
 ```
-http://localhost:8000/usuario/<str:documento>
+http://localhost:8000/api/usuario/<str:documento>
 ```
 
 **Crear usuario**
 ```
-http://localhost:8000/usuario/<str:documento>
+http://localhost:8000/api/usuario/<str:documento>
 ```
 
 **Actualizar usuario**
 ```
-http://localhost:8000/usuario/<str:documento>
+http://localhost:8000/api/usuario/<str:documento>
 ```
 
 **Eliminar usuario**
 ```
-http://localhost:8000/usuario/<str:documento>
+http://localhost:8000/api/usuario/<str:documento>
 ```
 
 Formato JSON para crear y actualizar usuarios:
@@ -92,27 +92,27 @@ Formato JSON para crear y actualizar usuarios:
 
 **Listar Trayectos**
 ```
-http://localhost:8000/trayecto/
+http://localhost:8000/api/trayecto/
 ```
 
 **Listar Trayecto**
 ```
-http://localhost:8000/trayecto/<int:id>
+http://localhost:8000/api/trayecto/<int:id>
 ```
 
 **Crear Trayecto**
 ```
-http://localhost:8000/usuario/<int:id>
+http://localhost:8000/api/usuario/<int:id>
 ```
 
 **Actualizar Trayecto**
 ```
-http://localhost:8000/usuario/<int:id>
+http://localhost:8000/api/usuario/<int:id>
 ```
 
 **Eliminar Trayecto**
 ```
-http://localhost:8000/usuario/<int:id>
+http://localhost:8000/api/usuario/<int:id>
 ```
 
 Formato JSON para crear y actualizar Trayectos:
@@ -131,27 +131,27 @@ Formato JSON para crear y actualizar Trayectos:
 
 **Listar Reservas**
 ```
-http://localhost:8000/reserva/
+http://localhost:8000/api/reserva/
 ```
 
 **Listar Reserva**
 ```
-http://localhost:8000/reserva/<int:id>
+http://localhost:8000/api/reserva/<int:id>
 ```
 
 **Crear Reserva**
 ```
-http://localhost:8000/reserva/<int:id>
+http://localhost:8000/api/reserva/<int:id>
 ```
 
 **Actualizar Reserva**
 ```
-http://localhost:8000/reserva/<int:id>
+http://localhost:8000/api/reserva/<int:id>
 ```
 
 **Eliminar Reserva**
 ```
-http://localhost:8000/reserva/<int:id>
+http://localhost:8000/api/reserva/<int:id>
 ```
 
 Formato JSON para crear y actualizar Trayectos:
@@ -167,6 +167,26 @@ Formato JSON para crear y actualizar Trayectos:
 	"telefono": "12345678",
 	"puesto": 1
 }
+```
+
+### Rutas API - Tokens
+
+**Generar token**
+```
+http://localhost:8000/api/token/
+```
+
+Formato JSON para generar el token:
+```JSON
+{
+	"username": "jhon123",
+	"password": "12345678"
+}
+```
+
+**Refrescar token**
+```
+http://localhost:8000/api/token/refresh/
 ```
 
 ## Notas
@@ -247,3 +267,7 @@ Formato JSON para crear y actualizar Trayectos:
 
 * Agregado sistema de autenticacion por token
 * Definidas nuevas rutas para obtener y refrescar los tokens
+
+**0.5.1**
+
+* Actualizadas rutas asociadas a los endpoints

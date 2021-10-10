@@ -22,7 +22,28 @@ Una vez clonado el repositorio y creado el entorno virtual, se debe ingresar a l
 pip install -r requirements.txt
 ```
 
-El proyecto de desarrollo esta corriendo con SQLite3 como base de datos por lo tanto no es necesario realizar configuraciones adicionales.
+El proyecto de desarrollo esta corriendo con PostgreSQL, se debe configurar la base de datos en el archivo local.py y configurar las credenciales de acceso.
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '5432',
+    }
+}
+```
+Si se desea hacer uso de sqlite3 se debe modifcar la variable DATABASES por.
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+```
 
 Una vez se han realizado las configuraciones se debe ejecutar el comando en la misma carpeta que contiene el manage.py con el fin de realizar las migraciones a la base de datos
 
@@ -34,6 +55,12 @@ Una vez se han configurado las migraciones se deben implementar con el comando
 
 ```console
 python manage.py migrate
+```
+
+Una vez configurada la base de datos se debe crear un superusuario para poder acceder al administrador
+
+```console
+python manage.py createsuperuser
 ```
 
 **Si se desea limpiar la base de datos se deben eliminar los archivos dentro de las carpetas migrations excepto el __init__.py y eliminar el archivo db.sqlite3 dentro de la carpeta admin_rest**

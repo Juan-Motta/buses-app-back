@@ -73,9 +73,11 @@ python manage.py runserver
 
 ## Servicios REST
 
-Para obtener una informacion mas detallada es posible acceder a la documentacion publica de la aplicacion una vez el servidor este iniciado por medio de la URL:
 
-* http://localhost:8000/swagger/
+### Administrador
+```
+http://localhost:8000/admin
+```
 
 ### Rutas API - Usuarios
 

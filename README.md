@@ -273,3 +273,8 @@ http://localhost:8000/api/token/refresh/
 **0.5.1**
 
 * Actualizadas rutas asociadas a los endpoints
+
+**0.5.2**
+
+* Actualizado proyecto a version preeliminar de produccion
+* Instaladas dependencias necesarias para realizar el despliegue de la app

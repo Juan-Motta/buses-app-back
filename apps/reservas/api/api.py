@@ -1,17 +1,19 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from apps.reservas.models import Reserva
 from apps.reservas.api.serializers import ReservaListSerializer, ReservaSerializer
 
 
 @api_view(['GET', 'POST'])
+@permission_classes((IsAuthenticated, ))
 def reserva_api_view(request):
     if request.method == 'GET':
         # queryset
         reservas = Reserva.objects.all()
         reservas_serializer = ReservaListSerializer(reservas, many=True)
-        return Response(reservas_serializer.data, status=status.HTTP_200_OK)
+        return Response(reservas_mserializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
         reserva_serializer = ReservaSerializer(data=request.data)
@@ -22,6 +24,7 @@ def reserva_api_view(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes((IsAuthenticated, ))
 def reserva_detail_api_view(request, id=None):
     # queryset
     reserva = Reserva.objects.filter(id=id).first()

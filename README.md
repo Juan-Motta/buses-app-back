@@ -307,3 +307,8 @@ http://localhost:8000/api/token/refresh/
 
 * Actualizado proyecto a version preeliminar de produccion
 * Instaladas dependencias necesarias para realizar el despliegue de la app
+
+**0.5.3**
+
+* Actualizadas rutas users y reservas, ahora requieren autenticacion para realizar peticiones HTTP
+* Actualizada ruta trayectos, ahora la ruta no requiere autenticacion y es posible realizar peticiones HTTP

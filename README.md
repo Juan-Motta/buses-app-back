@@ -312,3 +312,7 @@ http://localhost:8000/api/token/refresh/
 
 * Actualizadas rutas users y reservas, ahora requieren autenticacion para realizar peticiones HTTP
 * Actualizada ruta trayectos, ahora la ruta no requiere autenticacion y es posible realizar peticiones HTTP
+
+**0.5.4**
+
+* Actualizados permisos de las APIs users y trayectos

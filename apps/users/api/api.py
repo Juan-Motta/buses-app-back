@@ -4,10 +4,11 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from apps.users.models import User
 from apps.users.api.serializers import UserSerializer, UserListSerializer
+from .permissions import IsAdminUserCustom
 
 
 @api_view(['GET', 'POST'])
-@permission_classes((IsAuthenticated, ))
+@permission_classes((IsAdminUserCustom, ))
 def user_api_view(request):
     if request.method == 'GET':
         # queryset

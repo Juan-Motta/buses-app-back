@@ -1,11 +1,13 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from apps.trayectos.models import Trayecto
 from apps.trayectos.api.serializers import TrayectoListSerializer, TrayectoSerializer
+from .permissions import IsAdminUserCustom
 
 
 @api_view(['GET', 'POST'])
+@permission_classes((IsAdminUserCustom, ))
 def trayecto_api_view(request):
     if request.method == 'GET':
         # queryset
@@ -22,6 +24,7 @@ def trayecto_api_view(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes((IsAdminUserCustom, ))
 def trayecto_detail_api_view(request, id=None):
     # queryset
     trayecto = Trayecto.objects.filter(id=id).first()

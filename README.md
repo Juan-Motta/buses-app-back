@@ -316,3 +316,7 @@ http://localhost:8000/api/token/refresh/
 **0.5.4**
 
 * Actualizados permisos de las APIs users y trayectos
+
+**0.5.5**
+
+* Corregidos errores de la aplicacion reservas

@@ -12,7 +12,7 @@ La applicacion fue contruida usando las siguientes tecnologias:
 
 * PostgreSQL
 * Django
-* React
+* VueJS
 
 ## Instalacion y configuracion
 

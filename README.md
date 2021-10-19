@@ -320,3 +320,7 @@ http://localhost:8000/api/token/refresh/
 **0.5.5**
 
 * Corregidos errores de la aplicacion reservas
+
+**0.5.6**
+
+* Habilitado CORS

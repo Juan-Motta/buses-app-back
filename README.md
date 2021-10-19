@@ -12,7 +12,7 @@ La applicacion fue contruida usando las siguientes tecnologias:
 
 * PostgreSQL
 * Django
-* React
+* VueJS
 
 ## Instalacion y configuracion
 
@@ -324,3 +324,7 @@ http://localhost:8000/api/token/refresh/
 **0.5.6**
 
 * Habilitado CORS
+
+**0.5.7**
+
+* Cambio payload devuelto por el servidor al realizar autenticacion, ahora devuelve nombre de usuario y id de usuario

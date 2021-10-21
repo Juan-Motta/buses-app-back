@@ -331,4 +331,8 @@ http://localhost:8000/api/token/refresh/
 
 **0.5.8**
 
-* Cprregidos errores en users
+* Corregidos errores en users
+
+**0.5.9**
+
+* Cambios en la aplicacion users, ahora el endpoint para obtener un usuario recibe el id como parametro en vez del documento

@@ -9,7 +9,7 @@ urlpatterns = [
         name='user'
     ),
     path(
-        '<str:document>',
+        '<str:id>',
         user_detail_api_view,
         name='detailed_user'
     ),

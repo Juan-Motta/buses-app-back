@@ -26,9 +26,9 @@ def user_api_view(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes((IsAuthenticated, ))
-def user_detail_api_view(request, document=None):
+def user_detail_api_view(request, id=None):
     # queryset
-    user = User.objects.filter(document=document).first()
+    user = User.objects.filter(id=id).first()
 
     # validation
     if user:

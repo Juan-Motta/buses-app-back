@@ -328,3 +328,7 @@ http://localhost:8000/api/token/refresh/
 **0.5.7**
 
 * Cambio payload devuelto por el servidor al realizar autenticacion, ahora devuelve nombre de usuario y id de usuario
+
+**0.5.8**
+
+* Cprregidos errores en users

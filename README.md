@@ -336,3 +336,7 @@ http://localhost:8000/api/token/refresh/
 **0.5.9**
 
 * Cambios en la aplicacion users, ahora el endpoint para obtener un usuario recibe el id como parametro en vez del documento
+
+**0.5.10**
+
+*Actualizada aplicacion reservas, ahora al realizar una peticion tipo POST a la API, esta devuelve un mensaje junto con el id del registro en la base de datos

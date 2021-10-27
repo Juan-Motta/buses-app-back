@@ -19,7 +19,7 @@ def reserva_api_view(request):
         reserva_serializer = ReservaSerializer(data=request.data)
         if reserva_serializer.is_valid():
             reserva_serializer.save()
-            return Response({'message': 'Reserva creada correctamente!'}, status=status.HTTP_201_CREATED)
+            return Response({'message': 'Reserva creada correctamente!', 'id': reserva_serializer.data['id']}, status=status.HTTP_201_CREATED)
         return Response(reserva_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

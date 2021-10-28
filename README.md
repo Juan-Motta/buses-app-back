@@ -344,3 +344,7 @@ http://localhost:8000/api/token/refresh/
 **0.5.11**
 
 * Modificado serializer de la aplicación user, ahora se entrega el id del usuario
+
+**0.5.12**
+
+* Solucionado bug en el serializador de la app users que impedia crear un usuario correctamente

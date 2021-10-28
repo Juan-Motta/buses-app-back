@@ -340,3 +340,7 @@ http://localhost:8000/api/token/refresh/
 **0.5.10**
 
 *Actualizada aplicacion reservas, ahora al realizar una peticion tipo POST a la API, esta devuelve un mensaje junto con el id del registro en la base de datos
+
+**0.5.11**
+
+* Modificado serializer de la aplicación user, ahora se entrega el id del usuario

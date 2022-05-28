@@ -4,7 +4,6 @@
 
 
 Overide es una applicacion creada con el fin de poder gestionar la compra de pasajes de buses intermunicipales.
-Esta aplicacion esta creada como proyecto para el ciclo 3 de MisionTic20222
 
 ## Tecnologias utilizadas
 
